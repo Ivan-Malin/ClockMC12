@@ -7,8 +7,8 @@ Shape Version=11.00
 Screen=1333,889
 MCAPVersion=12.2.0.5
 Key ID=Demo
-NLCnt=258
-TXCnt=31
+NLCnt=275
+TXCnt=32
 
 [shapedef]
 Name=48
@@ -219,18 +219,6 @@ Pin="Q",10,0,-20,7
 Pin="QB",10,6,-27,6
 
 [compdef]
-Name=DClock
-Definition=Macro
-Shape=StimClock
-Mask=4096
-Used=10
-memo=Digital Clock Stimulus Macro
-Link=http://www.spectrum-soft.com/news/fall2003/dclock.shtm
-Label Offset=29,10,12,21
-PinCnt=1
-Pin="Out",d,9,0
-
-[compdef]
 Name=Fixed Digital
 Definition=DIGITAL STATE
 Shape=Fixed
@@ -313,11 +301,23 @@ Pin="In1",0,2,-6,-1
 Pin="Out",6,1,-7,-1
 
 [compdef]
+Name=DClock
+Definition=Macro
+Shape=StimClock
+Mask=4096
+Used=10
+memo=Digital Clock Stimulus Macro
+Link=http://www.spectrum-soft.com/news/fall2003/dclock.shtm
+Label Offset=29,10,12,21
+PinCnt=1
+Pin="Out",d,9,0
+
+[compdef]
 Name=7448
 Definition=Subckt
 Shape=48
 Mask=20608
-Used=1
+Used=2
 memo=BCD To Seven Segment Decoder/Driver
 Label Offset=19,121,-5,15
 PinCnt=14
@@ -341,7 +341,7 @@ Name=Voltage Source
 Definition=VSpice
 Shape=SPICE_V
 Mask=4097
-Used=72
+Used=73
 memo=Voltage Source
 Label Offset=19,13,15,13
 PinCnt=2
@@ -353,7 +353,7 @@ Name=Ground
 Definition=Ground
 Shape=Ground
 Mask=1793
-Used=313
+Used=314
 memo=Ground
 Label Offset=0,0,0,0
 PinCnt=1
@@ -364,7 +364,7 @@ Name=Animated Seven Segment
 Definition=SEVEN SEGMENT
 Shape=Seven Segment
 Mask=4096
-Used=3
+Used=4
 memo=Animated Seven Segment Display
 Label Offset=24,119,-6,15
 PinCnt=7
@@ -556,31 +556,6 @@ V=$G_DPWR
 [Attr]
 ON=55,93,GROUND NODE
 V=$G_DGND
-
-[Attr]
-ON=0,0,PACKAGE
-V
-
-[Comp]
-Name=DClock
-Px=112,344
-
-[Attr]
-ON=29,10,PART
-V=X1
-Style=8192
-
-[Attr]
-ON=29,24,FILE
-V=DClock
-
-[Attr]
-ON=29,52,Param:ZEROWIDTH
-V=40N
-
-[Attr]
-ON=29,66,Param:ONEWIDTH
-V=40N
 
 [Attr]
 ON=0,0,PACKAGE
@@ -1234,10 +1209,10 @@ Pxs=672,216,672,472
 Pxs=672,472,1256,472
 
 [Wire]
-Pxs=1352,440,1424,440
+Pxs=1256,448,1520,448
 
 [Wire]
-Pxs=1352,464,1424,464
+Pxs=1256,472,1520,472
 
 [Wire]
 Pxs=864,496,1256,496
@@ -2053,12 +2028,6 @@ Pxs=672,816,672,1072
 Pxs=672,1072,1256,1072
 
 [Wire]
-Pxs=1256,1048,1264,1048
-
-[Wire]
-Pxs=1256,1072,1264,1072
-
-[Wire]
 Pxs=864,1096,1256,1096
 
 [Wire]
@@ -2097,7 +2066,7 @@ Pxs=1200,960,1264,960
 [Comp]
 Name=7448
 Style=ShowPinText
-Px=1440,384
+Px=1536,392
 
 [Attr]
 ON=19,121,PART
@@ -2113,20 +2082,20 @@ ON=19,163,PACKAGE
 V=DIP16
 
 [Wire]
-Pxs=1424,440,1424,448
+Pxs=1520,448,1520,456
 
 [Wire]
-Pxs=1376,480,1424,480
+Pxs=1472,488,1520,488
 
 [Wire]
-Pxs=1376,496,1424,496
+Pxs=1472,504,1520,504
 
 [Wire]
-Pxs=1424,416,1424,432
+Pxs=1520,424,1520,440
 
 [Comp]
 Name=Voltage Source
-Px=1376,416
+Px=1472,424
 
 [Attr]
 ON=19,13,PART
@@ -2173,12 +2142,12 @@ Style=256
 
 [Comp]
 Name=Ground
-Px=1376,416
+Px=1472,424
 Rot=7
 
 [Comp]
 Name=Animated Seven Segment
-Px=1528,384
+Px=1624,392
 
 [Attr]
 ON=24,119,PART
@@ -2210,21 +2179,21 @@ ON=0,0,PACKAGE
 V
 
 [Wire]
-Pxs=1376,496,1376,512
+Pxs=1472,504,1472,520
 
 [Wire]
-Pxs=1352,512,1376,512
+Pxs=1256,520,1472,520
 
 [Wire]
-Pxs=1376,480,1376,488
+Pxs=1472,488,1472,496
 
 [Wire]
-Pxs=1352,488,1376,488
+Pxs=1256,496,1472,496
 
 [Object]
 Object=Rectangle
 CBorder=#000080
-Px=1364,348,1600,522
+Px=1462,360,1698,534
 
 [Wire]
 Pxs=1120,336,1264,336
@@ -2238,6 +2207,159 @@ Pxs=1120,936,1264,936
 [Wire]
 Pxs=1120,936,1120,960
 
+[Wire]
+Pxs=1264,960,1288,960
+
+[Wire]
+Pxs=1288,600,1288,608
+
+[Wire]
+Pxs=184,608,1288,608
+
+[Wire]
+Pxs=184,344,184,608
+
+[Wire]
+Pxs=1288,608,1288,960
+
+[Comp]
+Name=7448
+Style=ShowPinText
+Px=1536,992
+
+[Attr]
+ON=19,121,PART
+V=X4
+Style=8192
+
+[Attr]
+ON=19,135,NAME
+V=7448
+
+[Attr]
+ON=19,163,PACKAGE
+V=DIP16
+
+[Wire]
+Pxs=1520,1048,1520,1056
+
+[Wire]
+Pxs=1472,1088,1520,1088
+
+[Wire]
+Pxs=1472,1104,1520,1104
+
+[Wire]
+Pxs=1520,1024,1520,1040
+
+[Comp]
+Name=Voltage Source
+Px=1472,1024
+
+[Attr]
+ON=19,13,PART
+V=V2
+Style=8192
+
+[Attr]
+ON=19,27,VALUE
+V=DC 5 AC 1 0 
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Attr]
+ON=0,0,SMOOTHING
+V=N
+Style=256
+
+[Attr]
+ON=0,0,Saved_PulseS
+V=N
+Style=256
+
+[Attr]
+ON=0,0,FRACTION
+V=.2
+Style=256
+
+[Attr]
+ON=0,0,Saved_PulseF
+V=.2
+Style=256
+
+[Attr]
+ON=0,0,Saved_Pulse
+V=DC 0 AC 1 0 Pulse 0 5 100n 10n 10n 400n 1u
+Style=256
+
+[Attr]
+ON=0,0,Saved_None
+V=DC 5 AC 1 0 
+Style=256
+
+[Comp]
+Name=Ground
+Px=1472,1024
+Rot=7
+
+[Comp]
+Name=Animated Seven Segment
+Px=1624,992
+
+[Attr]
+ON=24,119,PART
+V=U30
+Style=8192
+
+[Attr]
+ON=24,133,I/O MODEL
+V=IO_STD
+
+[Attr]
+ON=24,147,IO_LEVEL
+V=0
+
+[Attr]
+ON=24,161,POWER NODE
+V=$G_DPWR
+
+[Attr]
+ON=24,175,GROUND NODE
+V=$G_DGND
+
+[Attr]
+ON=24,189,ON STATE
+V=High
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Wire]
+Pxs=1472,1104,1472,1120
+
+[Wire]
+Pxs=1472,1088,1472,1096
+
+[Object]
+Object=Rectangle
+CBorder=#000080
+Px=1461,964,1697,1138
+
+[Wire]
+Pxs=1256,1048,1520,1048
+
+[Wire]
+Pxs=1256,1072,1520,1072
+
+[Wire]
+Pxs=1256,1096,1472,1096
+
+[Wire]
+Pxs=1256,1120,1472,1120
+
 [Grid Text]
 Text="Ri"
 Px=1264,336
@@ -2248,7 +2370,7 @@ CBorder=None
 
 [Grid Text]
 Text="Сегмент"
-Px=1440,368
+Px=1536,376
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -2486,6 +2608,14 @@ JustifyH=Left
 JustifyV=Bottom
 CBorder=None
 
+[Grid Text]
+Text="Сегмент"
+Px=1536,976
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
 [Schematic]
 CurrentSection 0=0
 CurrentSection 1=0
@@ -2682,9 +2812,9 @@ PrinterScale=1
 Scale 0=1
 Scale 1=1
 Scale 2=1
-SB 3=12,7
+SB 3=1009,366
 Scale 3=2
-Px=1280,373
+Px=1559,1056
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
@@ -2899,7 +3029,7 @@ MonExprYWidth=367
 MonRangeXWidth=90
 MonRangeYWidth=90
 AnimateWait=Time
-AnimateWaitTime=100
+AnimateWaitTime=50
 AnimatePressAfter=0
 Save_For_Future=No
 Reduce_Display=1
@@ -3064,7 +3194,7 @@ Seed=0
 
 [Limits]
 Analysis=Transient
-TMax=3000n
+TMax=30000n
 TStart=0
 TStep=80
 NPts=51
