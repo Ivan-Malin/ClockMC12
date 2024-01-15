@@ -2089,7 +2089,7 @@ Pxs=1048,944,1056,944
 Pxs=1048,880,1048,944
 
 [Wire]
-Pxs=1200,400,1264,400
+Pxs=1200,360,1264,360
 
 [Wire]
 Pxs=1200,960,1264,960
@@ -2264,7 +2264,7 @@ CBorder=None
 
 [Grid Text]
 Text="R"
-Px=1264,400
+Px=1264,360
 GridSnap=True
 JustifyH=Left
 JustifyV=Bottom
@@ -2682,8 +2682,9 @@ PrinterScale=1
 Scale 0=1
 Scale 1=1
 Scale 2=1
+SB 3=12,7
 Scale 3=2
-Px=1351,574
+Px=1280,373
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
