@@ -1,0 +1,184 @@
+********************************************************************************
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
+***                       Transient Analysis of Clocks                       ***
+***                            15.01.2024 9:35:58                            ***
+********************************************************************************
+Limits
+======
+Maximum Run Time           3000n
+Output Start Time (tstart) 0
+Maximum Time Step          80
+Number of Points           51
+Temperature                Linear 27
+Retrace Runs               1
+Run Options                Normal
+State Variables            Zero
+Operating Point            On
+Operating Point Only       Off
+Auto Scale Ranges          On
+Accumulate Plots           Off
+Fixed Time Step            Off
+Periodic Steady State      Off
+Ignore Expression Errors   Off
+
+
+*****************************************************
+***                Temperature=27                 ***
+*****************************************************
+
+Temperature=27
+
+DC Operating Point Voltages
+===========================
+Node         Voltage  Node         Voltage  Node         Voltage 
+39            5.000   $G_DPWR       5.000   $G_DGND       0.000  
+X3.X3$.1      2.012   X3.X3$.2      1.297   X3.X3$.3    648.573m 
+
+DC Operating Point Digital States
+=================================
+Node     State Node     State Node     State Node     State Node     State
+HIGH     1     CLK      0     Q0       0     4        1     5        0    
+6        0     Q1       0     8        1     9        0     10       0    
+Q2       0     12       1     13       0     14       0     Q3       0    
+16       1     RI       1     R        0     19       1     HIGH1    1    
+CLK1     0     Q7       0     23       1     24       0     25       0    
+Q6       0     27       1     28       0     29       0     Q5       0    
+31       1     32       0     33       0     Q4       0     35       1    
+RI1      1     R1       0     38       1     40       1     41       1    
+42       1     43       1     44       1     45       1     46       0    
+X3.O_A   1     X3.O_B   1     X3.O_C   1     X3.O_D   1     X3.O_E   1    
+X3.O_F   1     X3.O_G   0     39$ATOD  1    
+
+
+Operating Point for Devices of Type Diode
+=========================================
+Instance:        X3.X3$.D1     X3.X3$.D2     X3.X3$.D3
+Using model:       D74CLMP           D74           D74
+
+Capacitance Terms:
+CAP                 2.041p        8.122p        8.122p
+
+Current Terms:
+ID                 -5.010p      776.974u      776.974u
+
+Resistance Terms:
+REQ                 1.000T       33.288        33.288 
+
+Voltage Terms:
+VD                 -5.000       648.573m      648.573m
+
+Power DC Terms:
+PD                 25.050p      503.924u      503.924u
+PS                  0.000         0.000         0.000 
+
+DC Pin Currents:
+Id                 -5.010p      776.974u      776.974u
+
+Condition:
+State                  OFF            ON            ON
+
+Device Variables:
+area                1.000         1.000         1.000 
+ic                  0.000         0.000         0.000 
+
+
+
+Operating Point for Devices of Type Bipolar Junction Transistors NPN
+====================================================================
+Instance:        X3.X3$.Q1
+Using model:           Q74
+
+Beta Terms:
+BETADC             -1.040 
+BETAAC            -56.615G
+
+Capacitance Terms:
+CPI               481.103f
+CMU                12.330p
+CBX                 0.000 
+CJS                 2.112p
+
+Conductance Terms:
+GM                 -1.155m
+
+Current Terms:
+IB                747.091u
+IC               -776.974u
+
+Resistance Terms:
+RPI                49.000T
+RX                  0.000 
+RO                865.497 
+
+Voltage Terms:
+VBE                -2.988 
+VBC               714.493m
+VCE                -3.703 
+
+Frequency Terms:
+FT              -14.354MEG
+
+Power DC Terms:
+PD                644.445u
+PS                  0.000 
+
+DC Pin Currents:
+Ib                747.091u
+Ic               -776.974u
+Ie                 29.884u
+Is                  0.000 
+
+Condition:
+State                  OFF
+
+Device Variables:
+area                1.000 
+vbe                 0.000 
+vce                 0.000 
+
+
+
+Operating Point for Devices of Type Resistor
+============================================
+Instance:         X3.X3$.R1     X3.X4$.R1     X3.X4$.R2     X3.X4$.R3
+V                    2.988         5.000         0.000         0.000 
+Power DC Terms:
+PD                   2.233m       25.000n        0.000         0.000 
+
+DC Pin Currents:
+Ir                 747.091u        5.000n        0.000         0.000 
+
+Device Variables:
+tc1                  0.000         0.000         0.000         0.000 
+tc2                  0.000         0.000         0.000         0.000 
+
+
+
+Operating Point for Devices of Type Capacitor
+=============================================
+Instance:         X3.X3$.C1
+V                    5.000 
+Power DC Terms:
+PS                   0.000 
+
+DC Pin Currents:
+Ic                   0.000 
+
+Device Variables:
+ic                   0.000 
+
+
+
+Operating Point for Devices of Type SPICE Source
+================================================
+Instance:               V1     X3.X4$.V1     X3.X4$.V2
+V                   5.000         5.000         0.000 
+Power DC Terms:
+PG                149.418u        3.735m        0.000 
+
+DC Pin Currents:
+ISource           -29.884u     -747.096u      776.974u
+
+

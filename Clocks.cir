@@ -7,8 +7,27 @@ Shape Version=11.00
 Screen=1333,889
 MCAPVersion=12.2.0.5
 Key ID=Demo
-NLCnt=241
-TXCnt=28
+NLCnt=258
+TXCnt=31
+
+[shapedef]
+Name=48
+Block=0,8,56,120,0,14
+BlockLine="Inv",-16,16
+BlockLine="Inv",-16,32
+BlockLine="Inv",-16,48
+BlockLine="Line",-16,64
+BlockLine="Line",-16,80
+BlockLine="Line",-16,96
+BlockLine="Line",-16,112
+BlockLine="Line",72,16
+BlockLine="Line",72,32
+BlockLine="Line",72,48
+BlockLine="Line",72,64
+BlockLine="Line",72,80
+BlockLine="Line",72,96
+BlockLine="Line",72,112
+FColor=None
 
 [shapedef]
 Name=And2
@@ -40,6 +59,13 @@ Name=Fixed
 Line=8,0,32,0
 Line=8,0,0,-8
 Line=8,0,0,8
+
+[shapedef]
+Name=Ground
+Line=0,0,12,0
+Line=12,-8,12,8
+Line=18,-4,18,4
+Line=24,0,24,0
 
 [shapedef]
 Name=Inv
@@ -115,6 +141,27 @@ Arc=0,-4,12,20 , 6,20,6,-4
 Arc=5,-18,43,20 , 24,20,42,8
 
 [shapedef]
+Name=Plus.root
+Line=-2,0,2,0
+Line=0,-2,0,2
+
+[shapedef]
+Name=Seven Segment
+Seven Segment=0,8,64,120
+FColor=#000000
+Line=0,16,-16,16
+Line=0,32,-16,32
+Line=0,48,-16,48
+Line=0,64,-16,64
+Line=0,80,-16,80
+Line=0,96,-16,96
+Line=0,112,-16,112
+
+[shapedef]
+Name=SPICE_V
+Root="Vsource.root",0,0,0
+
+[shapedef]
 Name=StimClock
 Arc=50,-8,62,8 , 56,8,62,0
 Arc=50,-8,62,8 , 62,0,56,-8
@@ -143,6 +190,16 @@ Line=44,-4,48,-4
 Line=48,-4,48,4
 Line=48,4,52,4
 
+[shapedef]
+Name=Vsource.root
+Line=0,0,12,0
+Line=36,0,48,0
+Ellipse=12,-12,36,12
+FColor=None
+Line=7,5,7,9
+Root="Plus.root",41,7,0
+Current=32,16,16,16
+
 [compdef]
 Name=JKFF
 Definition=JKFF
@@ -166,7 +223,7 @@ Name=DClock
 Definition=Macro
 Shape=StimClock
 Mask=4096
-Used=9
+Used=10
 memo=Digital Clock Stimulus Macro
 Link=http://www.spectrum-soft.com/news/fall2003/dclock.shtm
 Label Offset=29,10,12,21
@@ -255,8 +312,72 @@ Pin="In0",0,0,-6,-1
 Pin="In1",0,2,-6,-1
 Pin="Out",6,1,-7,-1
 
+[compdef]
+Name=7448
+Definition=Subckt
+Shape=48
+Mask=20608
+Used=1
+memo=BCD To Seven Segment Decoder/Driver
+Label Offset=19,121,-5,15
+PinCnt=14
+Pin="BI/RBO",d,-2,2,18,7
+Pin="RBIBAR",d,-2,4,18,7
+Pin="LTBAR",d,-2,6,18,7
+Pin="A",d,-2,8,19,7
+Pin="B",d,-2,10,19,7
+Pin="C",d,-2,12,19,7
+Pin="D",d,-2,14,19,7
+Pin="OA",d,9,2,-31,7
+Pin="OB",d,9,4,-31,7
+Pin="OC",d,9,6,-31,7
+Pin="OD",d,9,8,-32,7
+Pin="OE",d,9,10,-32,7
+Pin="OF",d,9,12,-32,7
+Pin="OG",d,9,14,-32,7
+
+[compdef]
+Name=Voltage Source
+Definition=VSpice
+Shape=SPICE_V
+Mask=4097
+Used=72
+memo=Voltage Source
+Label Offset=19,13,15,13
+PinCnt=2
+Pin="Plus",6,0,-5,-6
+Pin="Minus",0,0,-20,-6
+
+[compdef]
+Name=Ground
+Definition=Ground
+Shape=Ground
+Mask=1793
+Used=313
+memo=Ground
+Label Offset=0,0,0,0
+PinCnt=1
+Pin="PinA",0,0,-3,-7
+
+[compdef]
+Name=Animated Seven Segment
+Definition=SEVEN SEGMENT
+Shape=Seven Segment
+Mask=4096
+Used=3
+memo=Animated Seven Segment Display
+Label Offset=24,119,-6,15
+PinCnt=7
+Pin="A",-2,2,6,0
+Pin="B",-2,4,6,1
+Pin="C",-2,6,6,0
+Pin="D",-2,8,6,1
+Pin="E",-2,10,5,0
+Pin="F",-2,12,6,0
+Pin="G",-2,14,5,0
+
 [Circuit]
-Window Placement=2,3, -1,-1, -8,-31, 0,26,655,464
+Window Placement=2,3, -1,-1, -8,-31, 0,52,655,490
 Default Object=Color=#000080
 Default Object Font=Height=-15,FStyle=0,Color=#000080,Name=Arial
 Default Object Apply Border To Text=No
@@ -268,10 +389,10 @@ PowerFormat=3
 PathDelayFormat=3
 WarningFormat=3
 GridTextFormulaFormat=3
-Window Placement in Transient Analysis=2,3, -1,-1, -8,-31, 0,52,655,490
+Window Placement in Transient Analysis=0,1, -1,-1, -8,-31, 0,0,440,654
 SpiceType=AMBIGUOUS
 Title_Block_Border=None
-Title_Block=False
+Title_Block=True
 Show Nodes=False
 Show Voltages=False
 Show Current=False
@@ -1028,7 +1149,7 @@ Pxs=888,136,888,176
 Pxs=888,136,1120,136
 
 [Wire]
-Pxs=1120,144,1120,360
+Pxs=1120,144,1120,336
 
 [Wire]
 Pxs=696,272,696,400
@@ -1113,10 +1234,10 @@ Pxs=672,216,672,472
 Pxs=672,472,1256,472
 
 [Wire]
-Pxs=1256,448,1264,448
+Pxs=1352,440,1424,440
 
 [Wire]
-Pxs=1256,472,1264,472
+Pxs=1352,464,1424,464
 
 [Wire]
 Pxs=864,496,1256,496
@@ -1884,7 +2005,7 @@ Pxs=888,736,888,776
 Pxs=888,736,1120,736
 
 [Wire]
-Pxs=1120,744,1120,960
+Pxs=1120,744,1120,936
 
 [Wire]
 Pxs=696,872,696,1000
@@ -1972,6 +2093,166 @@ Pxs=1200,400,1264,400
 
 [Wire]
 Pxs=1200,960,1264,960
+
+[Comp]
+Name=7448
+Style=ShowPinText
+Px=1440,384
+
+[Attr]
+ON=19,121,PART
+V=X3
+Style=8192
+
+[Attr]
+ON=19,135,NAME
+V=7448
+
+[Attr]
+ON=19,163,PACKAGE
+V=DIP16
+
+[Wire]
+Pxs=1424,440,1424,448
+
+[Wire]
+Pxs=1376,480,1424,480
+
+[Wire]
+Pxs=1376,496,1424,496
+
+[Wire]
+Pxs=1424,416,1424,432
+
+[Comp]
+Name=Voltage Source
+Px=1376,416
+
+[Attr]
+ON=19,13,PART
+V=V1
+Style=8192
+
+[Attr]
+ON=19,27,VALUE
+V=DC 5 AC 1 0 
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Attr]
+ON=0,0,SMOOTHING
+V=N
+Style=256
+
+[Attr]
+ON=0,0,Saved_PulseS
+V=N
+Style=256
+
+[Attr]
+ON=0,0,FRACTION
+V=.2
+Style=256
+
+[Attr]
+ON=0,0,Saved_PulseF
+V=.2
+Style=256
+
+[Attr]
+ON=0,0,Saved_Pulse
+V=DC 0 AC 1 0 Pulse 0 5 100n 10n 10n 400n 1u
+Style=256
+
+[Attr]
+ON=0,0,Saved_None
+V=DC 5 AC 1 0 
+Style=256
+
+[Comp]
+Name=Ground
+Px=1376,416
+Rot=7
+
+[Comp]
+Name=Animated Seven Segment
+Px=1528,384
+
+[Attr]
+ON=24,119,PART
+V=U29
+Style=8192
+
+[Attr]
+ON=24,133,I/O MODEL
+V=IO_STD
+
+[Attr]
+ON=24,147,IO_LEVEL
+V=0
+
+[Attr]
+ON=24,161,POWER NODE
+V=$G_DPWR
+
+[Attr]
+ON=24,175,GROUND NODE
+V=$G_DGND
+
+[Attr]
+ON=24,189,ON STATE
+V=High
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Wire]
+Pxs=1376,496,1376,512
+
+[Wire]
+Pxs=1352,512,1376,512
+
+[Wire]
+Pxs=1376,480,1376,488
+
+[Wire]
+Pxs=1352,488,1376,488
+
+[Object]
+Object=Rectangle
+CBorder=#000080
+Px=1364,348,1600,522
+
+[Wire]
+Pxs=1120,336,1264,336
+
+[Wire]
+Pxs=1120,336,1120,360
+
+[Wire]
+Pxs=1120,936,1264,936
+
+[Wire]
+Pxs=1120,936,1120,960
+
+[Grid Text]
+Text="Ri"
+Px=1264,336
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="Сегмент"
+Px=1440,368
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
 
 [Grid Text]
 Text="R1"
@@ -2197,6 +2478,14 @@ JustifyH=Left
 JustifyV=Bottom
 CBorder=None
 
+[Grid Text]
+Text="Ri2"
+Px=1264,936
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
 [Schematic]
 CurrentSection 0=0
 CurrentSection 1=0
@@ -2371,7 +2660,7 @@ ALIGNBOTTOM=No
 
 [Section]
 Index=0
-Name="Часы"
+Name="Clocks"
 Type=Main
 Enable=True
 CurrentPage 0=0
@@ -2393,9 +2682,8 @@ PrinterScale=1
 Scale 0=1
 Scale 1=1
 Scale 2=1
-SB 3=0,240
 Scale 3=2
-Px=1422,412
+Px=1351,574
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
 Anchor Color=#000000
@@ -2537,7 +2825,7 @@ SimulationLog=True
 
 [Transient]
 WinID=1
-Window Placement=2,3, -1,-1, -8,-31, 0,52,655,490
+Window Placement=0,1, -1,-1, -8,-31, 440,0,880,654
 Font=Height=-19,FStyle=0,Color=#0000FF,Name=Arial
 WinBackGround Color=#FFFFFF
 Select Color=#FF0000
@@ -2609,8 +2897,8 @@ MonExprXWidth=142
 MonExprYWidth=367
 MonRangeXWidth=90
 MonRangeYWidth=90
-AnimateWait=None
-AnimateWaitTime=500
+AnimateWait=Time
+AnimateWaitTime=100
 AnimatePressAfter=0
 Save_For_Future=No
 Reduce_Display=1
@@ -2793,10 +3081,10 @@ Plt=1
 AliasID=1
 XExp=T
 YExp=d(HIGH)
-XRng=3e-6
+XRng=1,-1
 YRng=Auto
 Options=LINEARX,LINEARY
-Range Grid X=6e-7
+Range Grid X=0.5
 Enable=Enable
 CS=Normal
 Line Color=#0000FF
@@ -2819,10 +3107,10 @@ Plt=1
 AliasID=2
 XExp=T
 YExp=d(CLK)
-XRng=3e-6
+XRng=1,-1
 YRng=Auto
 Options=LINEARX,LINEARY
-Range Grid X=6e-7
+Range Grid X=0.5
 Enable=Enable
 CS=Normal
 Line Color=#FF0000
@@ -2845,10 +3133,10 @@ Plt=1
 AliasID=3
 XExp=T
 YExp=d(Q0)
-XRng=3e-6
+XRng=1,-1
 YRng=Auto
 Options=LINEARX,LINEARY
-Range Grid X=6e-7
+Range Grid X=0.5
 Enable=Enable
 CS=Normal
 Line Color=#006200
@@ -2871,10 +3159,10 @@ Plt=1
 AliasID=4
 XExp=T
 YExp=d(Q1)
-XRng=3e-6
+XRng=1,-1
 YRng=Auto
 Options=LINEARX,LINEARY
-Range Grid X=6e-7
+Range Grid X=0.5
 Enable=Enable
 CS=Normal
 Line Color=#FF00FF
@@ -2897,10 +3185,10 @@ Plt=1
 AliasID=5
 XExp=T
 YExp=d(Q2)
-XRng=3e-6
+XRng=1,-1
 YRng=Auto
 Options=LINEARX,LINEARY
-Range Grid X=6e-7
+Range Grid X=0.5
 Enable=Enable
 CS=Normal
 Line Color=#FF00FF
@@ -2923,10 +3211,10 @@ Plt=1
 AliasID=6
 XExp=T
 YExp=d(Q3)
-XRng=3e-6
+XRng=1,-1
 YRng=Auto
 Options=LINEARX,LINEARY
-Range Grid X=6e-7
+Range Grid X=0.5
 Enable=Enable
 CS=Normal
 Line Color=#FF00FF
@@ -2949,10 +3237,10 @@ Plt=1
 AliasID=7
 XExp=T
 YExp=d(R)
-XRng=3e-6
+XRng=1,-1
 YRng=Auto
 Options=LINEARX,LINEARY
-Range Grid X=6e-7
+Range Grid X=0.5
 Enable=Enable
 CS=Normal
 Line Color=#FF0000
@@ -2975,10 +3263,10 @@ Plt=1
 AliasID=8
 XExp=T
 YExp=dec(Q3,Q2,Q1,Q0)
-XRng=3e-6
+XRng=1,-1
 YRng=Auto
 Options=LINEARX,LINEARY
-Range Grid X=6e-7
+Range Grid X=0.5
 Enable=Enable
 CS=Normal
 Line Color=#FF00FF
@@ -3001,10 +3289,10 @@ Plt=1
 AliasID=9
 XExp=T
 YExp=dec(Q4,Q5,Q6,Q7)
-XRng=3e-6
+XRng=1,-1
 YRng=Auto
 Options=LINEARX,LINEARY
-Range Grid X=6e-7
+Range Grid X=0.5
 Enable=Enable
 Line Color=#008000
 Text Color=#008000
@@ -3053,6 +3341,8 @@ Analysis=Stability
 Analysis=Transient
 Format=3
 ExprPercentWidth=80
+ShowWin=True
+Window Placement=0,1, -1,-1, -8,-31, 880,0,1320,654
 
 [WCTolerance]
 Var Width=100
