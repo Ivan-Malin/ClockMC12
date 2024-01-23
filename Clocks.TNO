@@ -3,7 +3,7 @@
 ***                                                                          ***
 ***                                                                          ***
 ***                       Transient Analysis of Clocks                       ***
-***                           15.01.2024 11:06:07                            ***
+***                           23.01.2024 22:29:50                            ***
 ********************************************************************************
 Limits
 ======
@@ -32,13 +32,16 @@ Temperature=27
 
 DC Operating Point Voltages
 ===========================
-Node          Voltage  Node          Voltage  Node          Voltage 
-38             5.000   47             5.000   73             5.000  
-86             5.000   $G_DPWR        5.000   $G_DGND        0.000  
-X3.X9$.1       2.012   X3.X9$.2       1.297   X3.X9$.3     648.573m 
-X4.X11$.1      2.012   X4.X11$.2      1.297   X4.X11$.3    648.573m 
-X6.X12$.1      2.012   X6.X12$.2      1.297   X6.X12$.3    648.573m 
-X7.X13$.1      2.012   X7.X13$.2      1.297   X7.X13$.3    648.573m 
+Node           Voltage  Node           Voltage  Node           Voltage 
+38              5.000   47              5.000   73              5.000  
+86              5.000   201             5.000   210             5.000  
+$G_DPWR         5.000   $G_DGND         0.000   X3.X13$.1       2.012  
+X3.X13$.2       1.297   X3.X13$.3     648.573m  X4.X15$.1       2.012  
+X4.X15$.2       1.297   X4.X15$.3     648.573m  X6.X16$.1       2.012  
+X6.X16$.2       1.297   X6.X16$.3     648.573m  X7.X17$.1       2.012  
+X7.X17$.2       1.297   X7.X17$.3     648.573m  X9.X18$.1       2.012  
+X9.X18$.2       1.297   X9.X18$.3     648.573m  X10.X19$.1      2.012  
+X10.X19$.2      1.297   X10.X19$.3    648.573m 
 
 DC Operating Point Digital States
 =================================
@@ -47,243 +50,413 @@ HIGH     1     CLK      0     Q0       0     4        1     5        0
 6        0     Q1       0     8        1     9        0     10       0    
 Q2       0     12       1     13       0     14       0     Q3       0    
 16       1     RI       1     CLK3     0     19       1     HIGH1    1    
-CLK1     0     Q7       0     23       1     24       0     25       0    
+R4       0     Q7       0     23       1     24       0     25       0    
 Q6       0     27       1     28       0     29       0     Q5       0    
 31       1     32       0     33       0     Q4       0     35       1    
-RI2      1     37       1     39       1     40       1     41       1    
-42       1     43       1     44       1     45       0     46       1    
-48       1     49       1     50       1     51       0     52       0    
-53       1     54       1     HIGH3    1     Q15      0     57       1    
+RI2      1     37       1     39       Z     40       Z     41       Z    
+42       Z     43       Z     44       Z     45       Z     46       1    
+48       Z     49       Z     50       Z     51       Z     52       Z    
+53       Z     54       Z     HIGH3    1     Q15      0     57       1    
 58       0     59       0     Q14      0     61       1     62       0    
 63       0     Q13      0     65       1     66       0     67       0    
 Q12      0     69       1     RI5      1     R2       0     72       1    
-Q11      0     Q10      0     Q9       0     Q8       0     78       1    
-79       1     80       1     81       1     82       1     83       1    
-84       0     85       1     87       0     88       0     89       0    
-90       0     91       1     92       1     93       1     94       1    
-95       1     96       1     97       0     98       1     99       0    
+Q11      0     Q10      0     Q9       0     Q8       0     78       Z    
+79       Z     80       Z     81       Z     82       Z     83       Z    
+84       Z     85       1     87       0     88       0     89       0    
+90       0     91       Z     92       Z     93       Z     94       Z    
+95       Z     96       Z     97       Z     98       1     99       0    
 100      0     101      0     102      0     103      1     104      0    
 105      0     106      0     107      0     108      0     109      0    
 110      0     111      0     112      0     113      1     114      0    
 115      0     116      0     117      0     118      0     119      0    
-120      0     121      1     X3.O_A   1     X3.O_B   1     X3.O_C   1    
-X3.O_D   1     X3.O_E   1     X3.O_F   1     X3.O_G   0     X4.O_A   1    
-X4.O_B   1     X4.O_C   1     X4.O_D   1     X4.O_E   1     X4.O_F   1    
-X4.O_G   0     X6.O_A   1     X6.O_B   1     X6.O_C   1     X6.O_D   1    
-X6.O_E   1     X6.O_F   1     X6.O_G   0     X7.O_A   1     X7.O_B   1    
-X7.O_C   1     X7.O_D   1     X7.O_E   1     X7.O_F   1     X7.O_G   0    
-38$ATOD  1     47$ATOD  1     73$ATOD  1     86$ATOD  1    
+120      0     121      1     122      X     123      X     124      X    
+125      0     126      X     127      X     128      X     129      X    
+130      1     131      1     132      1     133      0     134      1    
+135      1     136      1     137      X     138      X     139      0    
+140      0     141      X     142      X     143      X     144      1    
+145      1     146      0     147      0     148      1     149      1    
+150      1     151      0     152      X     153      X     154      0    
+155      X     156      X     157      X     158      0     159      1    
+160      1     161      0     162      1     163      1     164      1    
+HIGH2    1     CLK2     0     Q19      0     168      1     169      0    
+170      0     Q18      0     172      1     173      0     174      0    
+Q17      0     176      1     177      0     178      0     Q16      0    
+180      1     RI3      1     182      1     HIGH4    1     CLK4     0    
+Q23      0     186      1     187      0     188      0     Q22      0    
+190      1     191      0     192      0     Q21      0     194      1    
+195      0     196      0     Q20      0     198      1     RI7      1    
+200      1     202      Z     203      Z     204      Z     205      Z    
+206      Z     207      Z     208      Z     209      1     211      Z    
+212      Z     213      Z     214      Z     215      Z     216      Z    
+217      Z     HIGH5    1     219      0     220      1     221      0    
+222      0     223      0     224      0     225      0     226      0    
+227      0     228      0     229      1     230      0     231      1    
+232      0     233      1     234      0     235      0     236      0    
+237      1     238      0     239      1     240      0     241      1    
+242      0     243      0     244      1     245      0     246      1    
+247      0     248      0     249      0     250      0     251      0    
+252      1     253      0     254      1     255      0     256      1    
+257      0     258      0     259      0     260      0     261      0    
+262      0     263      0     264      0     265      0     266      1    
+267      1     268      0     269      1     270      1     271      1    
+X3.O_A   1     X3.O_B   1     X3.O_C   1     X3.O_D   1     X3.O_E   1    
+X3.O_F   1     X3.O_G   0     X4.O_A   1     X4.O_B   1     X4.O_C   1    
+X4.O_D   1     X4.O_E   1     X4.O_F   1     X4.O_G   0     X6.O_A   1    
+X6.O_B   1     X6.O_C   1     X6.O_D   1     X6.O_E   1     X6.O_F   1    
+X6.O_G   0     X7.O_A   1     X7.O_B   1     X7.O_C   1     X7.O_D   1    
+X7.O_E   1     X7.O_F   1     X7.O_G   0     X9.O_A   1     X9.O_B   1    
+X9.O_C   1     X9.O_D   1     X9.O_E   1     X9.O_F   1     X9.O_G   0    
+X10.O_A  1     X10.O_B  1     X10.O_C  1     X10.O_D  1     X10.O_E  1    
+X10.O_F  1     X10.O_G  0     38$ATOD  1     47$ATOD  1     73$ATOD  1    
+86$ATOD  1     201$ATOD 1     210$ATOD 1    
 
 
 Operating Point for Devices of Type Diode
 =========================================
-Instance:        X3.X9$.D1     X3.X9$.D2     X3.X9$.D3    X4.X11$.D1    X4.X11$.D2
-Using model:       D74CLMP           D74           D74       D74CLMP           D74
+Instance:        X3.X13$.D1     X3.X13$.D2     X3.X13$.D3     X4.X15$.D1
+Using model:        D74CLMP            D74            D74        D74CLMP
 
 Capacitance Terms:
-CAP                 2.041p        8.122p        8.122p        2.041p        8.122p
+CAP                  2.041p         8.122p         8.122p         2.041p
 
 Current Terms:
-ID                 -5.010p      776.974u      776.974u       -5.010p      776.974u
+ID                  -5.010p       776.974u       776.974u        -5.010p
 
 Resistance Terms:
-REQ                 1.000T       33.288        33.288         1.000T       33.288 
+REQ                  1.000T        33.288         33.288          1.000T
 
 Voltage Terms:
-VD                 -5.000       648.573m      648.573m       -5.000       648.573m
+VD                  -5.000        648.573m       648.573m        -5.000 
 
 Power DC Terms:
-PD                 25.050p      503.924u      503.924u       25.050p      503.924u
-PS                  0.000         0.000         0.000         0.000         0.000 
+PD                  25.050p       503.924u       503.924u        25.050p
+PS                   0.000          0.000          0.000          0.000 
 
 DC Pin Currents:
-Id                 -5.010p      776.974u      776.974u       -5.010p      776.974u
+Id                  -5.010p       776.974u       776.974u        -5.010p
 
 Condition:
-State                  OFF            ON            ON           OFF            ON
+State                   OFF             ON             ON            OFF
 
 Device Variables:
-area                1.000         1.000         1.000         1.000         1.000 
-ic                  0.000         0.000         0.000         0.000         0.000 
+area                 1.000          1.000          1.000          1.000 
+ic                   0.000          0.000          0.000          0.000 
 
 
-Instance:       X4.X11$.D3    X6.X12$.D1    X6.X12$.D2    X6.X12$.D3    X7.X13$.D1
-Using model:           D74       D74CLMP           D74           D74       D74CLMP
+Instance:        X4.X15$.D2     X4.X15$.D3     X6.X16$.D1     X6.X16$.D2
+Using model:            D74            D74        D74CLMP            D74
 
 Capacitance Terms:
-CAP                 8.122p        2.041p        8.122p        8.122p        2.041p
+CAP                  8.122p         8.122p         2.041p         8.122p
 
 Current Terms:
-ID                776.974u       -5.010p      776.974u      776.974u       -5.010p
+ID                 776.974u       776.974u        -5.010p       776.974u
 
 Resistance Terms:
-REQ                33.288         1.000T       33.288        33.288         1.000T
+REQ                 33.288         33.288          1.000T        33.288 
 
 Voltage Terms:
-VD                648.573m       -5.000       648.573m      648.573m       -5.000 
+VD                 648.573m       648.573m        -5.000        648.573m
 
 Power DC Terms:
-PD                503.924u       25.050p      503.924u      503.924u       25.050p
-PS                  0.000         0.000         0.000         0.000         0.000 
+PD                 503.924u       503.924u        25.050p       503.924u
+PS                   0.000          0.000          0.000          0.000 
 
 DC Pin Currents:
-Id                776.974u       -5.010p      776.974u      776.974u       -5.010p
+Id                 776.974u       776.974u        -5.010p       776.974u
 
 Condition:
-State                   ON           OFF            ON            ON           OFF
+State                    ON             ON            OFF             ON
 
 Device Variables:
-area                1.000         1.000         1.000         1.000         1.000 
-ic                  0.000         0.000         0.000         0.000         0.000 
+area                 1.000          1.000          1.000          1.000 
+ic                   0.000          0.000          0.000          0.000 
 
 
-Instance:       X7.X13$.D2    X7.X13$.D3
-Using model:           D74           D74
+Instance:        X6.X16$.D3     X7.X17$.D1     X7.X17$.D2     X7.X17$.D3
+Using model:            D74        D74CLMP            D74            D74
 
 Capacitance Terms:
-CAP                 8.122p        8.122p
+CAP                  8.122p         2.041p         8.122p         8.122p
 
 Current Terms:
-ID                776.974u      776.974u
+ID                 776.974u        -5.010p       776.974u       776.974u
 
 Resistance Terms:
-REQ                33.288        33.288 
+REQ                 33.288          1.000T        33.288         33.288 
 
 Voltage Terms:
-VD                648.573m      648.573m
+VD                 648.573m        -5.000        648.573m       648.573m
 
 Power DC Terms:
-PD                503.924u      503.924u
-PS                  0.000         0.000 
+PD                 503.924u        25.050p       503.924u       503.924u
+PS                   0.000          0.000          0.000          0.000 
 
 DC Pin Currents:
-Id                776.974u      776.974u
+Id                 776.974u        -5.010p       776.974u       776.974u
 
 Condition:
-State                   ON            ON
+State                    ON            OFF             ON             ON
 
 Device Variables:
-area                1.000         1.000 
-ic                  0.000         0.000 
+area                 1.000          1.000          1.000          1.000 
+ic                   0.000          0.000          0.000          0.000 
+
+
+Instance:        X9.X18$.D1     X9.X18$.D2     X9.X18$.D3    X10.X19$.D1
+Using model:        D74CLMP            D74            D74        D74CLMP
+
+Capacitance Terms:
+CAP                  2.041p         8.122p         8.122p         2.041p
+
+Current Terms:
+ID                  -5.010p       776.974u       776.974u        -5.010p
+
+Resistance Terms:
+REQ                  1.000T        33.288         33.288          1.000T
+
+Voltage Terms:
+VD                  -5.000        648.573m       648.573m        -5.000 
+
+Power DC Terms:
+PD                  25.050p       503.924u       503.924u        25.050p
+PS                   0.000          0.000          0.000          0.000 
+
+DC Pin Currents:
+Id                  -5.010p       776.974u       776.974u        -5.010p
+
+Condition:
+State                   OFF             ON             ON            OFF
+
+Device Variables:
+area                 1.000          1.000          1.000          1.000 
+ic                   0.000          0.000          0.000          0.000 
+
+
+Instance:       X10.X19$.D2    X10.X19$.D3
+Using model:            D74            D74
+
+Capacitance Terms:
+CAP                  8.122p         8.122p
+
+Current Terms:
+ID                 776.974u       776.974u
+
+Resistance Terms:
+REQ                 33.288         33.288 
+
+Voltage Terms:
+VD                 648.573m       648.573m
+
+Power DC Terms:
+PD                 503.924u       503.924u
+PS                   0.000          0.000 
+
+DC Pin Currents:
+Id                 776.974u       776.974u
+
+Condition:
+State                    ON             ON
+
+Device Variables:
+area                 1.000          1.000 
+ic                   0.000          0.000 
 
 
 
 Operating Point for Devices of Type Bipolar Junction Transistors NPN
 ====================================================================
-Instance:        X3.X9$.Q1    X4.X11$.Q1    X6.X12$.Q1    X7.X13$.Q1
-Using model:           Q74           Q74           Q74           Q74
+Instance:        X3.X13$.Q1     X4.X15$.Q1     X6.X16$.Q1     X7.X17$.Q1
+Using model:            Q74            Q74            Q74            Q74
 
 Beta Terms:
-BETADC             -1.040        -1.040        -1.040        -1.040 
-BETAAC            -56.615G      -56.615G      -56.615G      -56.615G
+BETADC              -1.040         -1.040         -1.040         -1.040 
+BETAAC             -56.615G       -56.615G       -56.615G       -56.615G
 
 Capacitance Terms:
-CPI               481.103f      481.103f      481.103f      481.103f
-CMU                12.330p       12.330p       12.330p       12.330p
-CBX                 0.000         0.000         0.000         0.000 
-CJS                 2.112p        2.112p        2.112p        2.112p
+CPI                481.103f       481.103f       481.103f       481.103f
+CMU                 12.330p        12.330p        12.330p        12.330p
+CBX                  0.000          0.000          0.000          0.000 
+CJS                  2.112p         2.112p         2.112p         2.112p
 
 Conductance Terms:
-GM                 -1.155m       -1.155m       -1.155m       -1.155m
+GM                  -1.155m        -1.155m        -1.155m        -1.155m
 
 Current Terms:
-IB                747.091u      747.091u      747.091u      747.091u
-IC               -776.974u     -776.974u     -776.974u     -776.974u
+IB                 747.091u       747.091u       747.091u       747.091u
+IC                -776.974u      -776.974u      -776.974u      -776.974u
 
 Resistance Terms:
-RPI                49.000T       49.000T       49.000T       49.000T
-RX                  0.000         0.000         0.000         0.000 
-RO                865.497       865.497       865.497       865.497 
+RPI                 49.000T        49.000T        49.000T        49.000T
+RX                   0.000          0.000          0.000          0.000 
+RO                 865.497        865.497        865.497        865.497 
 
 Voltage Terms:
-VBE                -2.988        -2.988        -2.988        -2.988 
-VBC               714.493m      714.493m      714.493m      714.493m
-VCE                -3.703        -3.703        -3.703        -3.703 
+VBE                 -2.988         -2.988         -2.988         -2.988 
+VBC                714.493m       714.493m       714.493m       714.493m
+VCE                 -3.703         -3.703         -3.703         -3.703 
 
 Frequency Terms:
-FT              -14.354MEG    -14.354MEG    -14.354MEG    -14.354MEG
+FT               -14.354MEG     -14.354MEG     -14.354MEG     -14.354MEG
 
 Power DC Terms:
-PD                644.445u      644.445u      644.445u      644.445u
-PS                  0.000         0.000         0.000         0.000 
+PD                 644.445u       644.445u       644.445u       644.445u
+PS                   0.000          0.000          0.000          0.000 
 
 DC Pin Currents:
-Ib                747.091u      747.091u      747.091u      747.091u
-Ic               -776.974u     -776.974u     -776.974u     -776.974u
-Ie                 29.884u       29.884u       29.884u       29.884u
-Is                  0.000         0.000         0.000         0.000 
+Ib                 747.091u       747.091u       747.091u       747.091u
+Ic                -776.974u      -776.974u      -776.974u      -776.974u
+Ie                  29.884u        29.884u        29.884u        29.884u
+Is                   0.000          0.000          0.000          0.000 
 
 Condition:
-State                  OFF           OFF           OFF           OFF
+State                   OFF            OFF            OFF            OFF
 
 Device Variables:
-area                1.000         1.000         1.000         1.000 
-vbe                 0.000         0.000         0.000         0.000 
-vce                 0.000         0.000         0.000         0.000 
+area                 1.000          1.000          1.000          1.000 
+vbe                  0.000          0.000          0.000          0.000 
+vce                  0.000          0.000          0.000          0.000 
+
+
+Instance:        X9.X18$.Q1    X10.X19$.Q1
+Using model:            Q74            Q74
+
+Beta Terms:
+BETADC              -1.040         -1.040 
+BETAAC             -56.615G       -56.615G
+
+Capacitance Terms:
+CPI                481.103f       481.103f
+CMU                 12.330p        12.330p
+CBX                  0.000          0.000 
+CJS                  2.112p         2.112p
+
+Conductance Terms:
+GM                  -1.155m        -1.155m
+
+Current Terms:
+IB                 747.091u       747.091u
+IC                -776.974u      -776.974u
+
+Resistance Terms:
+RPI                 49.000T        49.000T
+RX                   0.000          0.000 
+RO                 865.497        865.497 
+
+Voltage Terms:
+VBE                 -2.988         -2.988 
+VBC                714.493m       714.493m
+VCE                 -3.703         -3.703 
+
+Frequency Terms:
+FT               -14.354MEG     -14.354MEG
+
+Power DC Terms:
+PD                 644.445u       644.445u
+PS                   0.000          0.000 
+
+DC Pin Currents:
+Ib                 747.091u       747.091u
+Ic                -776.974u      -776.974u
+Ie                  29.884u        29.884u
+Is                   0.000          0.000 
+
+Condition:
+State                   OFF            OFF
+
+Device Variables:
+area                 1.000          1.000 
+vbe                  0.000          0.000 
+vce                  0.000          0.000 
 
 
 
 Operating Point for Devices of Type Resistor
 ============================================
-Instance:         X3.X9$.R1    X3.X10$.R1    X3.X10$.R2    X3.X10$.R3    X4.X11$.R1
-V                    2.988         5.000         0.000         0.000         2.988 
+Instance:         X3.X13$.R1     X3.X14$.R1     X3.X14$.R2     X3.X14$.R3
+V                     2.988          5.000          0.000          0.000 
 Power DC Terms:
-PD                   2.233m       25.000n        0.000         0.000         2.233m
+PD                    2.233m        25.000n         0.000          0.000 
 
 DC Pin Currents:
-Ir                 747.091u        5.000n        0.000         0.000       747.091u
+Ir                  747.091u         5.000n         0.000          0.000 
 
 Device Variables:
-tc1                  0.000         0.000         0.000         0.000         0.000 
-tc2                  0.000         0.000         0.000         0.000         0.000 
+tc1                   0.000          0.000          0.000          0.000 
+tc2                   0.000          0.000          0.000          0.000 
 
 
-Instance:        X6.X12$.R1    X7.X13$.R1
-V                    2.988         2.988 
+Instance:         X4.X15$.R1     X6.X16$.R1     X7.X17$.R1     X9.X18$.R1
+V                     2.988          2.988          2.988          2.988 
 Power DC Terms:
-PD                   2.233m        2.233m
+PD                    2.233m         2.233m         2.233m         2.233m
 
 DC Pin Currents:
-Ir                 747.091u      747.091u
+Ir                  747.091u       747.091u       747.091u       747.091u
 
 Device Variables:
-tc1                  0.000         0.000 
-tc2                  0.000         0.000 
+tc1                   0.000          0.000          0.000          0.000 
+tc2                   0.000          0.000          0.000          0.000 
+
+
+Instance:        X10.X19$.R1
+V                     2.988 
+Power DC Terms:
+PD                    2.233m
+
+DC Pin Currents:
+Ir                  747.091u
+
+Device Variables:
+tc1                   0.000 
+tc2                   0.000 
 
 
 
 Operating Point for Devices of Type Capacitor
 =============================================
-Instance:         X3.X9$.C1    X4.X11$.C1    X6.X12$.C1    X7.X13$.C1
-V                    5.000         5.000         5.000         5.000 
+Instance:         X3.X13$.C1     X4.X15$.C1     X6.X16$.C1     X7.X17$.C1
+V                     5.000          5.000          5.000          5.000 
 Power DC Terms:
-PS                   0.000         0.000         0.000         0.000 
+PS                    0.000          0.000          0.000          0.000 
 
 DC Pin Currents:
-Ic                   0.000         0.000         0.000         0.000 
+Ic                    0.000          0.000          0.000          0.000 
 
 Device Variables:
-ic                   0.000         0.000         0.000         0.000 
+ic                    0.000          0.000          0.000          0.000 
+
+
+Instance:         X9.X18$.C1    X10.X19$.C1
+V                     5.000          5.000 
+Power DC Terms:
+PS                    0.000          0.000 
+
+DC Pin Currents:
+Ic                    0.000          0.000 
+
+Device Variables:
+ic                    0.000          0.000 
 
 
 
 Operating Point for Devices of Type SPICE Source
 ================================================
-Instance:               V1            V2            V3            V4    X3.X10$.V1
-V                   5.000         5.000         5.000         5.000         5.000 
+Instance:                V1             V2             V3             V4
+V                    5.000          5.000          5.000          5.000 
 Power DC Terms:
-PG                149.418u      149.418u      149.418u      149.418u       14.942m
+PG                 149.418u       149.418u       149.418u       149.418u
 
 DC Pin Currents:
-ISource           -29.884u      -29.884u      -29.884u      -29.884u       -2.988m
+ISource            -29.884u       -29.884u       -29.884u       -29.884u
 
 
-Instance:       X3.X10$.V2
-V                   0.000 
+Instance:                V5             V6     X3.X14$.V1     X3.X14$.V2
+V                    5.000          5.000          5.000          0.000 
 Power DC Terms:
-PG                  0.000 
+PG                 149.418u       149.418u        22.413m         0.000 
 
 DC Pin Currents:
-ISource             3.108m
+ISource            -29.884u       -29.884u        -4.483m         4.662m
 
 
